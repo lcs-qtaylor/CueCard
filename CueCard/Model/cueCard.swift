@@ -9,8 +9,8 @@ import Foundation
 
 struct OutCome: Identifiable{
     let id = UUID()
-    let selectedAnswer: Bool?
     let result: Result
+    let card: Card
 }
 struct Card: Identifiable {
     

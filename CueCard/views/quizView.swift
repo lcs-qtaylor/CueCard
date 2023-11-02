@@ -16,6 +16,14 @@ struct quizView: View {
         //MARK: Computed Properties
     var body: some View {
         VStack {
+            Button(action: {
+                
+                
+            }, label: {
+                Text("Add Card")
+                    .padding(.leading, 250)
+            })
+
             ZStack {
                 
                 RoundedRectangle(cornerRadius: 10, style: .circular)
@@ -87,6 +95,7 @@ struct quizView: View {
             nextQuestion()
         }
     }
+    
     func nextQuestion() {
         
         
