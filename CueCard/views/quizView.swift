@@ -10,8 +10,9 @@ import SwiftUI
 struct quizView: View {
         //MARK: Stored Properties
     @State var selectedAnswer: Bool?
-    @State var currentQuestionToAnswer = questionToAnswer.randomElement()!
-    
+    @State var currentQuestionToAnswer =
+    questionToAnswer.randomElement()!
+    @State var history: [Result] = []
     
         //MARK: Computed Properties
     var body: some View {
@@ -37,7 +38,8 @@ struct quizView: View {
             
             HStack{
                 Button(action: {
-                    self.selectedAnswer = true
+                    selectedAnswer = true
+                    CheckAnswer()
                 }, label: {
                     Text("True")
                         .padding()
@@ -46,7 +48,8 @@ struct quizView: View {
                 })
                 .padding(.horizontal,50)
                 Button(action: {
-                    self.selectedAnswer = false
+                    selectedAnswer = false
+                    CheckAnswer()
                 }, label: {
                     Text("false")
                         .padding()
@@ -68,18 +71,19 @@ struct quizView: View {
             
         }
     }
-       //MARK: Functions
-            
-            func CheckAnswer() {
-                if selectedAnswer == questionToAnswer.answer {
-                    
-                    print("Correct")
-                }else {
-                    
-                    print("Incorrect")
-                }
+        //MARK: Functions
+             
+        func CheckAnswer() {
+            if selectedAnswer == currentQuestionToAnswer.answer {
+                
+                print("Correct")
+            }else {
+                
+                print("Incorrect")
             }
-    }
+        }
+     
+}
 #Preview {
     quizView()
 }
