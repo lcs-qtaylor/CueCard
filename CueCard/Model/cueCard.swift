@@ -9,7 +9,7 @@ import Foundation
 
 struct OutCome: Identifiable{
     let id = UUID()
-    let selectedAnswer: Bool
+    let selectedAnswer: Bool?
     let result: Result
 }
 struct Card: Identifiable {
@@ -21,9 +21,15 @@ struct Card: Identifiable {
 
 let questionToAnswer = [ 
 
-  Card(question: "Iron is a metal?",
+  Card(question: "Iron is a metal",
        answer: true ),
   
+  Card(question: "Iron is not a metal",
+       answer: false ),
   
-
+  Card(question: "rap is music",
+       answer: false ),
+  
+  Card(question: "I love coding",
+       answer: true ),
 ]

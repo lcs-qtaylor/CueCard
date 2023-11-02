@@ -13,7 +13,6 @@
 		96B68B4A2AF2BE7C0038D7BC /* cueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B68B492AF2BE7C0038D7BC /* cueCard.swift */; };
 		96B68B4C2AF2BE890038D7BC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B68B4B2AF2BE890038D7BC /* Result.swift */; };
 		96B68B4E2AF2BE9E0038D7BC /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B68B4D2AF2BE9E0038D7BC /* Functions.swift */; };
-		96B68B522AF3F6930038D7BC /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B68B512AF3F6930038D7BC /* cardView.swift */; };
 		96B68B542AF3F6CF0038D7BC /* quizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B68B532AF3F6CF0038D7BC /* quizView.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +24,6 @@
 		96B68B492AF2BE7C0038D7BC /* cueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cueCard.swift; sourceTree = "<group>"; };
 		96B68B4B2AF2BE890038D7BC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		96B68B4D2AF2BE9E0038D7BC /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		96B68B512AF3F6930038D7BC /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		96B68B532AF3F6CF0038D7BC /* quizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quizView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				96B68B4D2AF2BE9E0038D7BC /* Functions.swift */,
-				96B68B512AF3F6930038D7BC /* cardView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -173,7 +170,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96B68B522AF3F6930038D7BC /* cardView.swift in Sources */,
 				96B68B542AF3F6CF0038D7BC /* quizView.swift in Sources */,
 				96B68B4A2AF2BE7C0038D7BC /* cueCard.swift in Sources */,
 				96B68B4C2AF2BE890038D7BC /* Result.swift in Sources */,
