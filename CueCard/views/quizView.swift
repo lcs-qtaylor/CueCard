@@ -8,11 +8,41 @@
 import SwiftUI
 
 struct quizView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        //MARK: Stored Properties
+    @State var selectedAnswer: Bool?
+        //MARK: Computed Properties
+        var body: some View {
+            VStack {
+                cardView()
+                HStack{
+                    Button(action: {
+                        self.selectedAnswer = true
+                    }, label: {
+                        Text("True")
+                            .padding()
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                    })
+                    .padding(.horizontal,50)
+                    Button(action: {
+                        self.selectedAnswer = false
+                    }, label: {
+                        Text("false")
+                            .padding()
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            
+                    })
+                    .padding(.horizontal,50)
+                    
+                }
+                
+                
+                
+            }
+       //MARK: Functions
+        }
     }
-}
-
 #Preview {
     quizView()
 }

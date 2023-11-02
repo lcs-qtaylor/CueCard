@@ -11,7 +11,7 @@ import SwiftUI
 struct CueCardApp: App {
     var body: some Scene {
         WindowGroup {
-            cueCardView()
+            quizView()
         }
     }
 }

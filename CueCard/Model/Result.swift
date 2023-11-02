@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum Result: String {
+    
+    case Correct = "C"
+    case Incorrect = "I"
+    case undetermined = "U"
+}
