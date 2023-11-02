@@ -10,10 +10,9 @@ import SwiftUI
 struct quizView: View {
         //MARK: Stored Properties
     @State var selectedAnswer: Bool?
-    @State var currentQuestionToAnswer =
-    questionToAnswer.randomElement()!
+    @State var currentQuestionToAnswer = questionToAnswer.randomElement()!
     @State var history: [Result] = []
-    
+    @State var currentResult: Result = .undetermined
         //MARK: Computed Properties
     var body: some View {
         VStack {
@@ -67,21 +66,31 @@ struct quizView: View {
                 
                 
             }
+            List {
+                
+            }
             
             
         }
     }
-        //MARK: Functions
-             
-        func CheckAnswer() {
-            if selectedAnswer == currentQuestionToAnswer.answer {
-                
-                print("Correct")
-            }else {
-                
-                print("Incorrect")
-            }
+//MARK: Functions
+    func CheckAnswer() {
+        if self.selectedAnswer == self.currentQuestionToAnswer.answer {
+            
+            print("Correct")
+        currentResult = .Correct
+            nextQuestion()
+        }else {
+            
+            print("Incorrect")
+        currentResult = .Incorrect
+            nextQuestion()
         }
+    }
+    func nextQuestion() {
+        
+        
+    }
      
 }
 #Preview {
