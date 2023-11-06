@@ -18,7 +18,16 @@ struct addCardView: View {
             Form {
                 Section(header: Text("New Item")) {
                     TextField("New Question", text: $newQuestion)
-                    Toggle("Is Complete", isOn: $newAnswer)
+                    HStack{
+                       Text("False")
+                            .padding()
+                        Spacer()
+                        Toggle("", isOn: $newAnswer)
+                        Spacer()
+                            .padding()
+                        Text("True")
+                    }
+                    
                 }
             }
             .navigationBarItems(
@@ -35,6 +44,14 @@ struct addCardView: View {
                     Text("Save")
                 }
             )
+        }
+        
+    }
+    func tOrF() {
+        if newAnswer == true {
+            print("true")
+        }else{
+            print("false")
         }
     }
 }

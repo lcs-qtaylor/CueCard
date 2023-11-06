@@ -12,7 +12,7 @@ struct quizView: View {
     @State var selectedAnswer: Bool?
     @State var currentQuestionToAnswer = questionToAnswer.randomElement()!
     @State var history: [Result] = []
-    @State var currentResult: Result = .undetermined
+    @State private var currentResult: Result = .undetermined
     @State var newCardIsShowing = false
     @State var newQuestion: String = ""
     @State var newAnswer: Bool = false
@@ -65,8 +65,8 @@ struct quizView: View {
                     .padding(.horizontal,50)
                     
                 }
-             
-                Text(currentResult)
+            
+                Text("\(currentResult.rawValue)")
                 
             }
             .toolbar{
