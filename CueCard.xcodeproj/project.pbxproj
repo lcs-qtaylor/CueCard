@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9664FFC92AF6B2C700080C85 /* addCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9664FFC82AF6B2C700080C85 /* addCardView.swift */; };
+		9664FFCB2AF92FDD00080C85 /* NewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9664FFCA2AF92FDD00080C85 /* NewCardViewModel.swift */; };
 		96B68B2F2AF2BCAB0038D7BC /* CueCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B68B2E2AF2BCAB0038D7BC /* CueCardApp.swift */; };
 		96B68B332AF2BCAC0038D7BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B68B322AF2BCAC0038D7BC /* Assets.xcassets */; };
 		96B68B362AF2BCAC0038D7BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B68B352AF2BCAC0038D7BC /* Preview Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9664FFC82AF6B2C700080C85 /* addCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCardView.swift; sourceTree = "<group>"; };
+		9664FFCA2AF92FDD00080C85 /* NewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewModel.swift; sourceTree = "<group>"; };
 		96B68B2B2AF2BCAB0038D7BC /* CueCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CueCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B68B2E2AF2BCAB0038D7BC /* CueCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueCardApp.swift; sourceTree = "<group>"; };
 		96B68B322AF2BCAC0038D7BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				96B68B532AF3F6CF0038D7BC /* quizView.swift */,
+				9664FFC82AF6B2C700080C85 /* addCardView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			children = (
 				96B68B492AF2BE7C0038D7BC /* cueCard.swift */,
 				96B68B4B2AF2BE890038D7BC /* Result.swift */,
+				9664FFCA2AF92FDD00080C85 /* NewCardViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +176,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9664FFC92AF6B2C700080C85 /* addCardView.swift in Sources */,
+				9664FFCB2AF92FDD00080C85 /* NewCardViewModel.swift in Sources */,
 				96B68B542AF3F6CF0038D7BC /* quizView.swift in Sources */,
 				96B68B4A2AF2BE7C0038D7BC /* cueCard.swift in Sources */,
 				96B68B4C2AF2BE890038D7BC /* Result.swift in Sources */,

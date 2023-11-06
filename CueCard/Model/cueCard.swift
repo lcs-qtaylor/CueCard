@@ -12,14 +12,14 @@ struct OutCome: Identifiable{
     let result: Result
     let card: Card
 }
+
 struct Card: Identifiable {
-    
     let id = UUID()
-    let question: String
-    let answer: Bool
+    var question: String
+    var answer: Bool
 }
 
-let questionToAnswer = [ 
+ var questionToAnswer = [
 
   Card(question: "Iron is a metal",
        answer: true ),

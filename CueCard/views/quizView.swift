@@ -13,74 +13,96 @@ struct quizView: View {
     @State var currentQuestionToAnswer = questionToAnswer.randomElement()!
     @State var history: [Result] = []
     @State var currentResult: Result = .undetermined
+    @State var newCardisShowing = false
+    @State var newQuestion: String = ""
+    @State var newAnswer: Bool = false
         //MARK: Computed Properties
     var body: some View {
-        VStack {
-            Button(action: {
-                
-                
-            }, label: {
-                Text("Add Card")
-                    .padding(.leading, 250)
-            })
-
-            ZStack {
-                
-                RoundedRectangle(cornerRadius: 10, style: .circular)
-                
-                
-                Text(currentQuestionToAnswer.question)
-                    .font(.body)
-                    .fontWeight(.black)
-                    .foregroundColor(Color.black)
-                    .padding(.all)
-                
-                
-                
-            }
-            .frame(width: 380.0, height: 250.0)
-            
-            .padding(.bottom, 10)
-            .foregroundColor(.orange)
-            
-            HStack{
-                Button(action: {
-                    selectedAnswer = true
-                    CheckAnswer()
-                }, label: {
-                    Text("True")
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                })
-                .padding(.horizontal,50)
-                Button(action: {
-                    selectedAnswer = false
-                    CheckAnswer()
-                }, label: {
-                    Text("false")
-                        .padding()
-                        .background(Color.red)
-                        .foregroundColor(.white)
+        NavigationStack {
+            VStack {
+                ZStack {
                     
-                })
-                .padding(.horizontal,50)
+                    RoundedRectangle(cornerRadius: 10, style: .circular)
+                    
+                    
+                    Text(currentQuestionToAnswer.question)
+                        .font(.body)
+                        .fontWeight(.black)
+                        .foregroundColor(Color.black)
+                        .padding(.all)
+                    
+                    
+                    
+                }
+                .frame(width: 380.0, height: 250.0)
+                
+                .padding(.bottom, 10)
+                .foregroundColor(.orange)
+                
+                HStack{
+                    Button(action: {
+                        selectedAnswer = true
+                        CheckAnswer()
+                    }, label: {
+                        Text("True")
+                            .padding()
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                    })
+                    .padding(.horizontal,50)
+                    Button(action: {
+                        selectedAnswer = false
+                        CheckAnswer()
+                    }, label: {
+                        Text("false")
+                            .padding()
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                        
+                    })
+                    .padding(.horizontal,50)
+                    
+                }
+                HStack {
+                    
+                    Text("History")
+                        .font(.title)
+                    
+                    
+                }
+                List {
+                    
+                }
+                
                 
             }
-            HStack {
-                
-                Text("History")
-                    .font(.title)
-                
+            .toolbar{
+                ToolbarItem{
+                    Menu {
+                        Button(action: {
+                            newCardisShowing = true
+                        }) {
+                            Text("Add Card")
+                            Image(systemName: "plus.app.fill")
+                        }
+                        Button(action: {
+                            
+                        }) {
+                            Image(systemName: "minus.square.fill")
+                            Text("Delete Card")
+                        }
+                    } label: {
+                        Image(systemName: "menucard")
+                    }
+                    
+                }
                 
             }
-            List {
-                
-            }
-            
             
         }
+        
     }
+        
 //MARK: Functions
     func CheckAnswer() {
         if self.selectedAnswer == self.currentQuestionToAnswer.answer {
