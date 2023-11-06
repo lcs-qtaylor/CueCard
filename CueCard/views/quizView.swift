@@ -13,7 +13,7 @@ struct quizView: View {
     @State var currentQuestionToAnswer = questionToAnswer.randomElement()!
     @State var history: [Result] = []
     @State var currentResult: Result = .undetermined
-    @State var newCardisShowing = false
+    @State var newCardIsShowing = false
     @State var newQuestion: String = ""
     @State var newAnswer: Bool = false
         //MARK: Computed Properties
@@ -80,7 +80,7 @@ struct quizView: View {
                 ToolbarItem{
                     Menu {
                         Button(action: {
-                            newCardisShowing = true
+                            newCardIsShowing = true
                         }) {
                             Text("Add Card")
                             Image(systemName: "plus.app.fill")
@@ -98,7 +98,9 @@ struct quizView: View {
                 }
                 
             }
-            
+            .sheet(isPresented: $newCardIsShowing) {
+                addCardView(newQuestion: $newQuestion, newAnswer: $newAnswer)
+            }
         }
         
     }

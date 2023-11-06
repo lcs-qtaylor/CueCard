@@ -8,22 +8,18 @@
 import SwiftUI
 
 struct addCardView: View {
-    @Binding var newCard: [Card]
-    @Binding var newCardIsShowing: Bool
     @Binding var newQuestion: String
     @Binding var newAnswer: Bool
-    
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("New Item")) {
                     TextField("New Question", text: $newQuestion)
-                    Toggle("Is Complete", isOn: $newAnswer)
+                    Toggle("Is Complete", isOn: $newAnswer) // change button type
+                    
                 }
             }
         }
     }
-}
-#Preview {
-    addCardView()
 }
