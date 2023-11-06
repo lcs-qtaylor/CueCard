@@ -11,15 +11,30 @@ struct addCardView: View {
     @Binding var newQuestion: String
     @Binding var newAnswer: Bool
     @Environment(\.dismiss) var dismiss
+    @Binding var cardList: [Card] // Binding to the list of Card
+
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("New Item")) {
                     TextField("New Question", text: $newQuestion)
-                    Toggle("Is Complete", isOn: $newAnswer) // change button type
-                    
+                    Toggle("Is Complete", isOn: $newAnswer)
                 }
             }
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.dismiss()
+                }) {
+                    Text("Cancel")
+                },
+                trailing: Button(action: {
+                    // Append new info to the list of Card
+                    cardList.append(Card(question: newQuestion, answer: newAnswer))
+                    self.dismiss()
+                }) {
+                    Text("Save")
+                }
+            )
         }
     }
 }

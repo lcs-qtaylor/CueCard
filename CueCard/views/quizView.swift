@@ -16,6 +16,8 @@ struct quizView: View {
     @State var newCardIsShowing = false
     @State var newQuestion: String = ""
     @State var newAnswer: Bool = false
+    @State var cardList = questionToAnswer
+    @State var showMyCardsSheet = false
         //MARK: Computed Properties
     var body: some View {
         NavigationStack {
@@ -63,17 +65,8 @@ struct quizView: View {
                     .padding(.horizontal,50)
                     
                 }
-                HStack {
-                    
-                    Text("History")
-                        .font(.title)
-                    
-                    
-                }
-                List {
-                    
-                }
-                
+             
+                Text(currentResult)
                 
             }
             .toolbar{
@@ -86,10 +79,10 @@ struct quizView: View {
                             Image(systemName: "plus.app.fill")
                         }
                         Button(action: {
-                            
+                            showMyCardsSheet = true
                         }) {
-                            Image(systemName: "minus.square.fill")
-                            Text("Delete Card")
+                            Image(systemName: "list.bullet")
+                            Text("My cards")
                         }
                     } label: {
                         Image(systemName: "menucard")
@@ -99,7 +92,10 @@ struct quizView: View {
                 
             }
             .sheet(isPresented: $newCardIsShowing) {
-                addCardView(newQuestion: $newQuestion, newAnswer: $newAnswer)
+                addCardView(newQuestion: $newQuestion, newAnswer: $newAnswer,cardList: $cardList)
+            }
+            .sheet(isPresented: $showMyCardsSheet) {
+                myCardsView(cardList: $cardList)
             }
         }
         

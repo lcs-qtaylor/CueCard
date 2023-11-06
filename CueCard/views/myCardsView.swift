@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct myCardsView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    @Binding var cardList: [Card]
+    @Environment(\.dismiss) var dismiss
+        var body: some View {
+            NavigationView {
+                List(cardList) { card in
+                    Text("\(card.question) - \(card.answer ? "True" : "False")")
+                }
+                .navigationBarItems(trailing:
+                    Button(action: {
+                       self.dismiss()
+                    }) {
+                        Text("Done")
+                    }
+                )
+                .navigationBarTitle("My Cards")
+            }
+        }
     }
-}
-
-#Preview {
-    myCardsView()
-}
