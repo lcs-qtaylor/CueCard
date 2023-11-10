@@ -13,11 +13,11 @@ struct quizView: View {
     @State var currentQuestionToAnswer = questionToAnswer.randomElement()!
     @State var history: [Result] = []
     @State private var currentResult: Result = .undetermined
-    @State var newCardIsShowing = false
-    @State var newQuestion: String = ""
-    @State var newAnswer: Bool = false
-    @State var cardList = questionToAnswer
-    @State var showMyCardsSheet = false
+//    @State var newCardIsShowing = false
+//    @State var newQuestion: String = ""
+//    @State var newAnswer: Bool = false
+//    @State var cardList = questionToAnswer
+//    @State var showMyCardsSheet = false
         //MARK: Computed Properties
     var body: some View {
         NavigationStack {
@@ -69,34 +69,34 @@ struct quizView: View {
                 Text("\(currentResult.rawValue)")
                 
             }
-            .toolbar{
-                ToolbarItem{
-                    Menu {
-                        Button(action: {
-                            newCardIsShowing = true
-                        }) {
-                            Text("Add Card")
-                            Image(systemName: "plus.app.fill")
-                        }
-                        Button(action: {
-                            showMyCardsSheet = true
-                        }) {
-                            Image(systemName: "list.bullet")
-                            Text("My cards")
-                        }
-                    } label: {
-                        Image(systemName: "menucard")
-                    }
-                    
-                }
+//            .toolbar{
+//                ToolbarItem{
+//                    Menu {
+//                        Button(action: {
+//                            newCardIsShowing = true
+//                        }) {
+//                            Text("Add Card")
+//                            Image(systemName: "plus.app.fill")
+//                        }
+//                        Button(action: {
+//                            showMyCardsSheet = true
+//                        }) {
+//                            Image(systemName: "list.bullet")
+//                            Text("My cards")
+//                        }
+//                    } label: {
+//                        Image(systemName: "menucard")
+//                    }
+//                    
+//                }
                 
-            }
-            .sheet(isPresented: $newCardIsShowing) {
-                addCardView(newQuestion: $newQuestion, newAnswer: $newAnswer,cardList: $cardList)
-            }
-            .sheet(isPresented: $showMyCardsSheet) {
-                myCardsView(cardList: $cardList)
-            }
+//            }
+//            .sheet(isPresented: $newCardIsShowing) {
+//                addCardView(newQuestion: $newQuestion, newAnswer: $newAnswer,cardList: $cardList)
+//            }
+//            .sheet(isPresented: $showMyCardsSheet) {
+//                myCardsView(cardList: $cardList)
+//            }
         }
         
     }
