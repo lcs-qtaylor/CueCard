@@ -11,8 +11,10 @@ struct quizView: View {
         //MARK: Stored Properties
     @State var selectedAnswer: Bool?
     @State var currentQuestionToAnswer = questionToAnswer.randomElement()!
-    @State var history: [Result] = []
-    @State private var currentResult: Result = .undetermined
+    @State var history: [OutCome] = []
+    @State var currentResult: Result = .undetermined
+    @State var search = ""
+    
         //MARK: Computed Properties
     var body: some View {
         NavigationStack {
@@ -60,30 +62,40 @@ struct quizView: View {
                     .padding(.horizontal,50)
                     
                 }
-            
+                
                 Text("\(currentResult.rawValue)")
                 
+                
             }
-
+            TextField("Search", text: $search)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+            List(
+                                filtering(originalList: history, on: search)
+                            ) { currentOutCome in
+                                HStack {
+                                    Text(currentOutCome.card.question)
+                                    Text(currentOutCome.result.rawValue)
+                                }
+                            }
+                            .listStyle(InsetGroupedListStyle())
+                        
         }
-        
     }
         
 //MARK: Functions
     func CheckAnswer() {
-        if self.selectedAnswer == self.currentQuestionToAnswer.answer {
-            
-            print("Correct")
-        currentResult = .Correct
-            history.append(currentResult)
-            nextQuestion()
-        }else {
-            
-            print("Incorrect")
-        currentResult = .Incorrect
-            history.append(currentResult)
-            nextQuestion()
-        }
+        let userAnswer = selectedAnswer ?? false // Default to false if selectedAnswer is nil
+        
+        let result: Result = (userAnswer == currentQuestionToAnswer.answer) ? .Correct : .Incorrect
+        
+        let outcome = OutCome(result: result, userAnswer: userAnswer, card: currentQuestionToAnswer)
+        
+        print(result.rawValue) // Print the result
+        
+        history.append(outcome)
+        nextQuestion()
     }
     
     func nextQuestion() {

@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct OutCome: Identifiable{
+struct OutCome: Identifiable {
     let id = UUID()
     let result: Result
+    let userAnswer: Bool
     let card: Card
 }
 

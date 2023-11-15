@@ -9,7 +9,7 @@ import Foundation
 
 enum Result: String {
     
-    case Correct = "Correct"
-    case Incorrect = "Incorrect"
-    case undetermined = "Undetermined"
+    case Correct = "✅"
+    case Incorrect = "❌"
+    case undetermined = ""
 }
