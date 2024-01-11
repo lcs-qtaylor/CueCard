@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct quizView: View {
-        //MARK: Stored Properties
+    //MARK: Stored Properties
     @State var selectedAnswer: Bool?
     @State var currentQuestionToAnswer = questionToAnswer.randomElement()!
     @State var history: [OutCome] = []
     @State var currentResult: Result = .undetermined
     @State var search = ""
     
-        //MARK: Computed Properties
+    //MARK: Computed Properties
     var body: some View {
         NavigationStack {
             VStack {
@@ -68,31 +68,36 @@ struct quizView: View {
                 
             }
             TextField("Search", text: $search)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
             List(
-                                filtering(originalList: history, on: search)
-                            ) { currentOutCome in
-                                HStack {
-                                    Text(currentOutCome.card.question)
-                                    Text(currentOutCome.result.rawValue)
-                                }
-                            }
-                            .listStyle(InsetGroupedListStyle())
-                        
+                filtering(originalList: history, on: search)
+            ) { currentOutCome in
+                HStack {
+                    Text(currentOutCome.card.question)
+                    Text(currentOutCome.result.rawValue)
+                }
+            }
+            .listStyle(InsetGroupedListStyle())
+            
         }
     }
-        
-//MARK: Functions
+    
+    //MARK: Functions
     func CheckAnswer() {
-        let userAnswer = selectedAnswer ?? false // Default to false if selectedAnswer is nil
+        let userAnswer = selectedAnswer ?? false
         
-        let result: Result = (userAnswer == currentQuestionToAnswer.answer) ? .Correct : .Incorrect
+        var result: Result
+        if userAnswer == currentQuestionToAnswer.answer {
+            result = .Correct
+        } else {
+            result = .Incorrect
+        }
         
         let outcome = OutCome(result: result, userAnswer: userAnswer, card: currentQuestionToAnswer)
         
-        print(result.rawValue) // Print the result
+        print(result.rawValue)
         
         history.append(outcome)
         nextQuestion()
@@ -100,9 +105,9 @@ struct quizView: View {
     
     func nextQuestion() {
         currentQuestionToAnswer = questionToAnswer.randomElement()!
-                selectedAnswer = nil
+        selectedAnswer = nil
     }
-     
+    
 }
 #Preview {
     quizView()

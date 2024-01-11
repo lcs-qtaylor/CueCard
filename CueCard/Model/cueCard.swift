@@ -21,16 +21,33 @@ struct Card: Identifiable {
 }
 
  var questionToAnswer = [
+    Card(question: "The capital of Iceland is Reykjavik",
+         answer: true),
 
-  Card(question: "Iron is a metal",
-       answer: true ),
-  
-  Card(question: "Iron is not a metal",
-       answer: false ),
-  
-  Card(question: "rap is music",
-       answer: false ),
-  
-  Card(question: "I love coding",
-       answer: true ),
+    Card(question: "Cats are a type of reptile",
+         answer: false),
+
+    Card(question: "The Eiffel Tower is located in London",
+         answer: false),
+
+    Card(question: "The programming language Python was named after the snake",
+         answer: true),
+
+    Card(question: "Bananas are berries",
+         answer: true),
+
+    Card(question: "Mount Everest is the tallest mountain in the world",
+         answer: true),
+
+    Card(question: "The Great Wall of China can be seen from space with the naked eye",
+         answer: false),
+
+    Card(question: "Java is an island in Indonesia",
+         answer: false),
+
+    Card(question: "The sun is a planet",
+         answer: false),
+
+    Card(question: "Bees communicate by dancing",
+         answer: true),
 ]
